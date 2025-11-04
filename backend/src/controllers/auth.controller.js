@@ -75,6 +75,7 @@ export const login = async (req, res) => {
   }
 };
 
+// Cookie Expiration: This is the simplest and most effective way to log a user out. It sets the jwt cookie's maxAge to 0, which tells the browser to immediately delete the cookie. The client no longer has the token, so they are logged out.
 export const logout = (req, res) => {
   try {
     res.cookie("jwt", "", { maxAge: 0 });
