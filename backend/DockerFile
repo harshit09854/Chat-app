@@ -1,0 +1,20 @@
+# Node.js base image use karein
+FROM node:18-alpine
+
+# Working directory set karein
+WORKDIR /app
+
+# Dependency files copy karein
+COPY package*.json ./
+
+# Packages install karein
+RUN npm install
+
+# Baaki saara project code copy karein
+COPY . .
+
+# Apka chat app jis port par chalta hai (e.g. 3000 ya 5000)
+EXPOSE 3000
+
+# App start karne ki command
+CMD ["npm", "start"]
